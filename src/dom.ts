@@ -1,4 +1,5 @@
 import {Todo} from "types";
+import {todosStore} from "./store";
 
 const createListItem = (todo: Todo) => {
   const wrapperEl = document.createElement('section')
@@ -19,7 +20,10 @@ const createListItem = (todo: Todo) => {
     console.log(`updating ${todo.id}...`)
   })
   removeBtnEl.addEventListener('click', () => {
-    console.log(`removing ${todo.id}...`)
+    todosStore.dispatch({
+      type: 'REMOVE',
+      payload: todo.id
+    })
   })
 
   return wrapperEl
