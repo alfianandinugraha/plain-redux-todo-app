@@ -3,7 +3,7 @@ import {Todo, TodosAction} from "types";
 const todosReducer = (initialState: Todo[] = [], action: TodosAction): Todo[] => {
   switch (action.type) {
     case "ADD": {
-      return [...initialState, action.payload]
+      return [action.payload, ...initialState]
     }
     case "REMOVE": {
       return initialState.filter((todo) => todo.id !== action.payload)
