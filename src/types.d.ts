@@ -6,7 +6,7 @@ declare module "types" {
   }
 
   export type TodosAction = {
-    type: 'ADD' | 'UPDATE',
+    type: 'ADD',
     payload: Todo
   } | {
     type: 'REMOVE' | 'TOGGLE',

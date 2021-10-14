@@ -8,17 +8,6 @@ const todosReducer = (initialState: Todo[] = [], action: TodosAction): Todo[] =>
     case "REMOVE": {
       return initialState.filter((todo) => todo.id !== action.payload)
     }
-    case "UPDATE": {
-      return initialState.map((todo) => {
-        if (todo.id === action.payload.id) {
-          return {
-            ...todo,
-            value: action.payload.value
-          }
-        }
-        return todo
-      })
-    }
     case "TOGGLE": {
       return initialState.map((todo) => {
         if (todo.id === action.payload) {
