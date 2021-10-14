@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <title>Vite App</title>
+    <style>
+      .form-check-input:checked ~ .todo-value {
+        text-decoration: line-through;
+      }
+    </style>
   </head>
   <body>
     <div class="container mt-4">
@@ -25,7 +30,7 @@
           <div id="todos" class="mt-4 list-group">
             <div class="list-group-item d-flex align-items-center px-2 ps-3">
               <input type="checkbox" class="form-check-input me-3 mt-0">
-              <label>Hi</label>
+              <div class="todo-value">Hi</div>
               <section class="btn-group ms-auto">
                 <button class="btn btn-outline-primary">Update</button>
                 <button class="btn btn-outline-danger">Remove</button>

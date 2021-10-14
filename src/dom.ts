@@ -2,11 +2,12 @@ import {Todo} from "types";
 
 const createListItem = (todo: Todo) => {
   const wrapperEl = document.createElement('section')
-  wrapperEl.className = 'list-group-item d-flex justify-content-between align-items-center px-2 ps-3'
+  wrapperEl.className = 'list-group-item d-flex align-items-center px-2 ps-3'
   wrapperEl.id = todo.id
   wrapperEl.innerHTML = `
-    <div>${todo.value}</div>
-    <section class="btn-group">
+    <input type="checkbox" class="form-check-input me-3 mt-0">
+    <div class="todo-value">${todo.value}</div>
+    <section class="btn-group ms-auto">
       <button class="btn btn-outline-primary update-btn">Update</button>
       <button class="btn btn-outline-danger remove-btn">Remove</button>
     </section>
