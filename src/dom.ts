@@ -1,3 +1,5 @@
+import {Todo} from "types";
+
 const createListItem = (todo: Todo) => {
   const wrapperEl = document.createElement('section')
   wrapperEl.className = 'list-group-item d-flex justify-content-between align-items-center px-2 ps-3'
