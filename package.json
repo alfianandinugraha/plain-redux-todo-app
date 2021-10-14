@@ -11,6 +11,7 @@
     "vite": "^2.6.0"
   },
   "dependencies": {
+    "nanoid": "^3.1.30",
     "redux": "^4.1.1"
   }
 }
