@@ -6,7 +6,7 @@ const createListItem = (todo: Todo) => {
   wrapperEl.className = 'list-group-item d-flex align-items-center px-2 ps-3'
   wrapperEl.id = todo.id
   wrapperEl.innerHTML = `
-    <input type="checkbox" class="form-check-input me-3 mt-0">
+    <input type="checkbox" class="form-check-input me-3 mt-0 toggle-btn" ${todo.isComplete ? 'checked' : ''}>
     <div class="todo-value">${todo.value}</div>
     <section class="btn-group ms-auto">
       <button class="btn btn-outline-primary update-btn">Update</button>
@@ -15,6 +15,7 @@ const createListItem = (todo: Todo) => {
   `
   const updateBtnEl = wrapperEl.getElementsByClassName('update-btn')[0]
   const removeBtnEl = wrapperEl.getElementsByClassName('remove-btn')[0]
+  const toggleBtnEl = wrapperEl.getElementsByClassName('toggle-btn')[0]
 
   updateBtnEl.addEventListener('click', () => {
     console.log(`updating ${todo.id}...`)
@@ -22,6 +23,12 @@ const createListItem = (todo: Todo) => {
   removeBtnEl.addEventListener('click', () => {
     todosStore.dispatch({
       type: 'REMOVE',
+      payload: todo.id
+    })
+  })
+  toggleBtnEl.addEventListener('click', () => {
+    todosStore.dispatch({
+      type: 'TOGGLE',
       payload: todo.id
     })
   })
