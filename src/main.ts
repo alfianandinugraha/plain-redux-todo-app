@@ -1,9 +1,5 @@
 import {createListItem} from "./dom";
-
-interface Todo {
-  value: string
-  id: string
-}
+import {Todo} from 'types'
 
 const todosEl = document.getElementById('todos')!
 const initialTodos: Todo[] = [{
