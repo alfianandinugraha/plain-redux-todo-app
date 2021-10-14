@@ -1,15 +1,21 @@
 import {createListItem} from "./dom";
-import {Todo} from 'types'
+import {todosStore} from "./store";
 
 const todosEl = document.getElementById('todos')!
-const initialTodos: Todo[] = [{
-  value: 'Buy meal',
-  id: '1'
-}, {
-  value: 'Buy meal',
-  id: '2'
-}]
 
-initialTodos.forEach((todo) => {
-  todosEl.appendChild(createListItem(todo))
+todosStore.subscribe(() => {
+  const todos = todosStore.getState()
+  todosEl.innerHTML = ''
+  todos.forEach((todo) => {
+    todosEl.appendChild(createListItem(todo))
+  })
+})
+
+todosStore.dispatch({
+  type: 'ADD',
+  payload: {
+    id: '8989',
+    value: 'Buy milk',
+    isComplete: false
+  }
 })
