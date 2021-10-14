@@ -9,17 +9,12 @@ const createListItem = (todo: Todo) => {
     <input type="checkbox" class="form-check-input me-3 mt-0 toggle-btn" ${todo.isComplete ? 'checked' : ''}>
     <div class="todo-value">${todo.value}</div>
     <section class="btn-group ms-auto">
-      <button class="btn btn-outline-primary update-btn">Update</button>
       <button class="btn btn-outline-danger remove-btn">Remove</button>
     </section>
   `
-  const updateBtnEl = wrapperEl.getElementsByClassName('update-btn')[0]
   const removeBtnEl = wrapperEl.getElementsByClassName('remove-btn')[0]
   const toggleBtnEl = wrapperEl.getElementsByClassName('toggle-btn')[0]
 
-  updateBtnEl.addEventListener('click', () => {
-    console.log(`updating ${todo.id}...`)
-  })
   removeBtnEl.addEventListener('click', () => {
     todosStore.dispatch({
       type: 'REMOVE',
